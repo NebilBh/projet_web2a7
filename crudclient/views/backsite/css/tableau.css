@@ -1,0 +1,32 @@
+table
+{
+border: medium solid #24445c;
+border-collapse: collapse;
+width: 100%;
+}
+
+.firstline
+{
+color:black;
+font-size: 1.2em;
+font-weight: bold;
+font-family: sans-serif;
+border: thin solid #003366;
+width: 14.3%;
+padding: 5px;
+margin: 20px;
+text-align: center;
+background-color: #f7f7f7;
+}
+
+td 
+{
+color:black;
+font-family: sans-serif;
+border: thin solid #003366;
+width: 14.3%;
+padding: 5px;
+margin: 20px;
+text-align: center;
+background-color: #f7f7f7;
+}

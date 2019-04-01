@@ -1,0 +1,14 @@
+.buttons:before
+{
+float: left;
+width: 1em;
+text-align: center;
+font-size: 1.7em;
+margin: 0 0.5em 0 -1em;
+padding: 0 .2em;
+pointer-events: none;
+}
+
+#edit:before   { content: "\270E"; }
+#delete:before { content: "\2718";}
+#save:before   { content: "\2714";}
