@@ -29,9 +29,8 @@
   </head>
 
   <body class="nav-md">
-        <?php include("menu.php"); ?>
+        <?php include_once("menu.php");?>
         <!-- /top navigation -->
-
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">

@@ -1,3 +1,7 @@
+<?PHP 
+        session_start();
+       
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -67,17 +71,18 @@
                     
                     <div class="clearfix"></div>
                   </div>
-                  
+                     
                     
                     
                           <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method ="get" action = "ajouter_soldes.php">
                                 <!--identifiant-->
+                                <input type="hidden" required="required" name ="article" value = "<?php echo $_GET['id']; ?>">
                             <div class="form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Identifiant  <span class="required">*</span>
+                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name" >ajouté par  <span class="required">*</span>
                               </label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Identifiant" required="required" 
-                                name="idAdmin">
+                                name="idAdmin" value = "<?php echo $_SESSION['login']; ?>">
                                 <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                               </div>
                             </div>
@@ -86,7 +91,7 @@
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Article  <span class="required">*</span>
                               </label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Article" required="required" name ="article">
+                                <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Article" required="required" value = "<?php echo $_GET['id']; ?>" disabled ="disabled" >
                                 <span class="fa fa-search form-control-feedback left" aria-hidden="true"></span>
                               </div>
                             </div>
@@ -95,7 +100,7 @@
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Pourcentage <span class="required">*</span>
                               </label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Pourcentage" required="required"name ="pct">
+                                <input type="number" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Pourcentage" required="required"name ="pct" min = "1" max = "100">
                                 <span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
                               </div>
                             </div>
@@ -104,7 +109,7 @@
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Quantité <span class="required">*</span>
                               </label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" class="form-control col-md-7 col-xs-12" id="" placeholder="Quantité" required="required" name = "qte">
+                                <input type="number" class="form-control col-md-7 col-xs-12" id="" placeholder="Quantité" required="required" name = "qte" min ="1">
                                 
                               </div>
                             </div>
@@ -124,7 +129,7 @@
 
 		                      <div class="form-group">
 		                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-		                          <button class="btn btn-primary" type="button">Annuler</button>
+		                          
             					  <button class="btn btn-primary" type="reset">Reset</button>
 		                          <button type="submit" class="btn btn-success">Confirmer</button>
 		                        </div>

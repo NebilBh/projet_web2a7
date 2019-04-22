@@ -33,12 +33,8 @@
   </head>
 
   <body class="nav-md">
-
+    <?php include 'menu.php'?>
     <!--nav menu-->
-      <?php include_once("menu.php");
-      ?>
-
-       
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
@@ -73,19 +69,18 @@
                     if(isset($_GET['id']))
                     {
 
-                    	$solde=new SoldeC();
-					    $result=$solde->chercher('id',$_GET['id']);
-						foreach($result as $row){
-						$id=$row['id'];
-						$idAdmin=$row['idAdmin'];
-						$article=$row['article'];
-						$pct =$row['pct'];
-						$qte=$row['qte'];
-						$dateD=$row['dateD'];
-						$dateF=$row['dateF'];
-						$duree =$dateD.' / '.$dateF;
-						?>
-                    
+                      $solde=new SoldeC();
+          					  $result=$solde->chercher('id',$_GET['id']);
+          						foreach($result as $row){
+          						$id=$row['id'];
+          						$idAdmin=$row['idAdmin'];
+          						$article=$row['article'];
+          						$pct =$row['pct'];
+          						$qte=$row['qte'];
+          						$dateD=$row['dateD'];
+          						$dateF=$row['dateF'];
+          						$duree =$dateD.' / '.$dateF;
+						          ?>
                           <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method ="get" >
                           	
                               
@@ -116,7 +111,7 @@
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Pourcentage <span class="required">*</span>
                               </label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Pourcentage" required="required"name ="pct" value ="<?PHP echo $pct ?>">
+                                <input type="number" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Pourcentage" required="required"name ="pct" value ="<?PHP echo $pct ?>">
                                 <span class="fa fa-tag form-control-feedback left" aria-hidden="true"></span>
                               </div>
                             </div>
@@ -125,7 +120,7 @@
                               <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Quantité <span class="required">*</span>
                               </label>
                               <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" class="form-control col-md-7 col-xs-12" id="" placeholder="Quantité" required="required" name = "qte"
+                                <input type="number" class="form-control col-md-7 col-xs-12" id="" placeholder="Quantité" required="required" name = "qte"
                                 value="<?PHP echo $qte ?>">
                                 
                               </div>
@@ -149,7 +144,7 @@
 		                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
 		                          
             					  
-		                          <button href="afficher_soldes.php" type="submit" class="btn btn-success" name ="modifier">Confirmer</button>
+		                          <button  type="submit" class="btn btn-success" name ="modifier">Confirmer</button>
 		                        </div>
 		                      </div>
 		                    </form>
@@ -217,8 +212,7 @@
 
      <script src="../vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
     <script src="../vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
-    <script src="../vendors/google-code-prettify/src/prettify.js"></script>
-	
+    <script src="../vendors/google-code-prettify/src/prettify.js"></script>	
 <?php 
 }
 } 
@@ -230,9 +224,14 @@ if (isset($_GET['modifier'])){
 	$mes = $soldeC->modifier($solde);
 	if($mes == true )
 	{
-
-	    
+		header('location:afficher_soldes.php');
 	}
+	
+}
+
+function GoToNow($url)
+{
+  echo '<script language="javascript">windows.location.href ="'.$url.'"</script>';
 }
 function extraire_date(&$dateD,&$dateF,$duree)
 {

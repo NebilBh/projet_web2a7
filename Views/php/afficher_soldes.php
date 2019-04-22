@@ -1,3 +1,11 @@
+<?PHP 
+        session_start();
+        $_SESSION['login'] ='nebil';
+        $_SESSION['pwd'] = '123';
+        $_SESSION ['role'] = '1';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,6 +18,7 @@
     <title>DataTables | Gentelella</title>
 
     <!-- Bootstrap -->
+    <link href ="css/autocomplete.css" rel = "stylesheet">
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -31,10 +40,8 @@
   </head>
 
   <body class="nav-md">
-        <?php
-        include_once("menu.php"); ?>
-        <!-- /top navigation -->
-        <!-- page content -->
+        <?php include("menu.php"); ?>
+
         <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
@@ -64,12 +71,12 @@
                     
                     <div class="clearfix"></div>
                   </div>
-
+                    
                   <div class="x_content">
                     
 
                    
-                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                    <table id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>
                           <th>Identifiant</th>
@@ -79,6 +86,7 @@
                           <th>Quantité</th>
                           <th>date de Debut</th>
                           <th>date de fin</th>
+                          <th>modele</th>
                           <th></th>
                         </tr>
                       </thead>
@@ -88,7 +96,15 @@
                         <?php
                           include_once( '../../Core/soldesC.php');
                           $soldes = new SoldeC();
+                          if(isset($_GET['modele']))
+                          {
+                            $qry= $soldes->chercherModele($_GET['modele']);
+                          }
+                          else
+                          {
                           $qry = $soldes->afficher();
+
+                          }
                           $data = $qry->fetchAll();
 
                           foreach ($data as $row)
@@ -102,22 +118,35 @@
                           <td><?php echo $row['qte']?></td>
                           <td><?php echo $row['dateD']?></td>
                           <td><?php echo $row['dateF']?></td>
-                          
-
+                          <td><?php echo $row['modele']?></td>
                           <td>
+                            <?php 
+                            if(isset($_SESSION['login']) && isset($_SESSION['pwd']))
+                            {
+                              if($_SESSION['role'] == '1')
+                              {
+                            ?>
                             <form method="get" action="supprimer_soldes.php">
                               
                              <input type="submit" name="supprimer" value="supprimer" class="btn btn-danger">
                              <input type="hidden" value="<?PHP echo $row['id']; ?>" name="id">
                              <a class ="btn btn-primary "href="modifier_soldes.php?id=<?PHP echo $row['id']; ?>">Modifier</a>
                            </form> 
+                           <?php 
+                              }
+                            }
+                            ?>
                         </td>
                         </tr>
                         <?php } ?>
                       </tbody>
-
                     </table>
-                  </div>
+                    <form class="form-group" method ="get" action = "afficher_soldes.php">
+                        <div class="autocomplete" style="width:200px;">
+                          <input id="myInput" type="text" name="modele" placeholder="Modele">
+                        </div>
+                    <input type="submit" class = "btn btn-success" value = "rechercher">
+                  </form>
 
               </div>
             </div>
@@ -135,8 +164,9 @@
           <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->
-        
-
+    
+    <script src = "js/autocomplete.js"></script> 
+    <script src="../vendors/parsleyjs/dist/parsley.min.js"></script>
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -153,7 +183,7 @@
     <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+   
     <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
     <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
     <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
@@ -176,6 +206,8 @@
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+    <!--autocomplete-->
+    
 
   </body>
 </html>
