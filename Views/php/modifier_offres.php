@@ -35,8 +35,7 @@
   <body class="nav-md">
 
     <!--nav menu-->
-      <?php include_once("menu.php");
-      ?>
+      
 
        
         <!-- page content -->
@@ -44,7 +43,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Promotions</h3>
+                <h3>Offre</h3>
               </div>
 
               <div class="title_right">
@@ -121,7 +120,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Quantité <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                  <input type="text" class="form-control col-md-7 col-xs-12"   required="required" name ="qte" value = "<?php echo $qte?>">
+                                  <input type="number" class="form-control col-md-7 col-xs-12"   required="required" name ="qte" value = "<?php echo $qte?>">
                                 </div>
                               </div>
                               
@@ -215,7 +214,8 @@
 <?php 
 }
 } 
-if (isset($_GET['modifier'])){
+if (isset($_GET['modifier']))
+{
 
 	$duree = $_GET['duree'];
 	extraire_date($dateD,$dateF,$duree);
@@ -223,13 +223,17 @@ if (isset($_GET['modifier'])){
 	$offre =new offre($_GET['idInt'],$_GET['idAdmin'],$_GET['article'],$_GET['articleOff'],$_GET['qte'],$dateD,$dateF);
 	$offreC = new offreC();
 
-	$mes = $offreC->modifier($offre);
-	if($mes == true )
-	{
-    echo "succes";
-    return;
-	    
-	}
+	
+  	if($offreC->modifier($offre) )
+  	{
+      header('location:afficher.php');
+    
+  	    
+  	}
+}
+function GoToNow($url)
+{
+  echo '<script language="javascript">windows.location.href ="'.$url.'"</script>';
 }
 function extraire_date(&$dateD,&$dateF,$duree)
 {
@@ -239,6 +243,8 @@ function extraire_date(&$dateD,&$dateF,$duree)
 	$dateF=date("Y-m-d", strtotime($dateF));
 	$dateD=date("Y-m-d", strtotime($dateD));
 }
+
+
 ?>
 </body>
 </html>

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -72,8 +73,9 @@
                         	<form id="demo-form1" data-parsley-validate class="form-horizontal form-label-left" method ="get" action="ajouter_offres.php">
 	                        	<!--identifiant-->
 	                        	<div class="form-group">
-	                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id">Nom  <span class="required">*</span>
-	                              </label>
+	                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="id">ajouté par  <span class="required">*</span>
+	                              </label
+                                >
 	                              <div class="col-md-6 col-sm-6 col-xs-12">
 	                                <input type="text" class="form-control has-feedback-left"  required="required" name="idAdmin">
 	                                <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
@@ -84,7 +86,7 @@
 	                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="inputSuccess2">Article  <span class="required">*</span>
 	                              </label>
 	                              <div class="col-md-6 col-sm-6 col-xs-12">
-	                                <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Carrera 6XXX" required="required" name = "article">
+	                                <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Carrera 6XXX" required="required" name = "article" value = "<?php echo $_POST['id']; ?> ">
 	                                <span class="fa fa-search form-control-feedback left" aria-hidden="true"></span>
 	                              </div>
 	                            </div>
@@ -102,7 +104,7 @@
 	                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Quantité <span class="required">*</span>
 	                              </label>
 	                              <div class="col-md-6 col-sm-6 col-xs-12">
-	                                <input type="text" class="form-control col-md-7 col-xs-12"   required="required" name ="qte">
+	                                <input type="number" class="form-control col-md-7 col-xs-12"   required="required" name ="qte">
 	                              </div>
 	                            </div>
 	                            
@@ -120,7 +122,7 @@
 
 	                            <div class="form-group">
 			                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-			                          <button class="btn btn-primary" type="button">Annuler</button>
+			                         
 									              <button class="btn btn-primary" type="reset">Reset</button>
 			                          <button type="submit" class="btn btn-success" value="submit" >Confirmer</button>
 			                        </div>
