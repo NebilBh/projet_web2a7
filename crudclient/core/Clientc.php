@@ -256,5 +256,20 @@ class CarteC
 			echo 'Erreur '.$e->getMessage();
 		}
 	}
+
+	function topfive()
+	{
+		$sql="select Points,FirstName,LastName from carte a inner join client b on a.CardID=b.CardID order by Points DESC LIMIT 5";
+		$db=config::getConnexion();
+		try
+		{
+			$tab=$db->query($sql);
+			return $tab;
+		}
+		catch (Exception $e)
+		{
+			echo 'Erreur '.$e->getMessage();
+		}
+	}
 }
 ?>

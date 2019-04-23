@@ -12,7 +12,7 @@
 <html lang="zxx">
 
 <head>
-	<title>Goggles Ecommerce Category Bootstrap responsive Web Template | Customer :: w3layouts</title>
+	<title>Opticien Afric Optic : lunettes de vue, lunettes de solei, lentilles de contact</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="keywords" content="Goggles a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -50,13 +50,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul>
 						<li>
 							<i class="fas fa-phone"></i> Call</li>
-						<li class="number-phone mt-3">12345678099</li>
+						<li class="number-phone mt-3">71 740 358</li>
 					</ul>
 				</div>
 				<div class="col-md-6 logo-w3layouts text-center">
 					<h1 class="logo-w3layouts">
 						<a class="navbar-brand" href="index.php">
-							Goggles </a>
+							Afric Optic</a>
 					</h1>
 				</div>
 
@@ -607,12 +607,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="contact-info">
 						<h4>Location :</h4>
-						<p>0926k 4th block building, king Avenue, New York City.</p>
+						<p>Rue Abdelhafidh El Mekki, La Marsa.</p>
 						<div class="phone">
 							<h4>Contact :</h4>
-							<p>Phone : +121 098 8907 9987</p>
+							<p>Phone : 71 740 358</p>
 							<p>Email :
-								<a href="mailto:info@example.com">info@example.com</a>
+								<a href="mailto:africopticpro@gmail.com">africopticpro@gmail.com</a>
 							</p>
 						</div>
 					</div>

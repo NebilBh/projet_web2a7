@@ -260,8 +260,6 @@
                 </div>
               </div>
             <div class="clearfix"></div>
-          </div>              
-        </div>  
 
               <br><br>
 
@@ -307,8 +305,8 @@
                 </div>
 
             <div class="clearfix"></div>
-          </div>              
         </div>
+    </div>
         <!-- /page content -->
 
         <!-- footer content -->
