@@ -61,8 +61,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</h1>
 				</div>
 
-				<div class="col-md-3 top-info-cart text-right mt-lg-4">
-				
+<div class="col-md-3 top-info-cart text-right mt-lg-4">
+<form class="button-log">
+							<a class="btn-open" href="#">
+								<span title="Log In " class="fa fa-user" aria-hidden="true"></span>
+							</a>
+						</form>			
 
 <a href="checkout.php" title="CHECKOUT" rel="nofollow">
                 <button class="top_googles_cart" type="submit" name="submit" value="">
@@ -131,6 +135,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
+
+
 					<!---->
 					<div class="overlay-login text-left">
 						<button type="button" class="overlay-close1">
@@ -139,15 +145,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="wrap">
 							<h5 class="text-center mb-4">Login Now</h5>
 							<div class="login p-5 bg-dark mx-auto mw-100">
-								<form action="#" method="post">
+								<form action="connexion_checkout.php" method="post">
 									<div class="form-group">
 										<label class="mb-2">Email address</label>
-										<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
+										<input type="email" class="form-control" name="login" id="login" aria-describedby="emailHelp" placeholder="" required="">
 										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 									</div>
 									<div class="form-group">
 										<label class="mb-2">Password</label>
-										<input type="password" class="form-control" id="exampleInputPassword1" placeholder="" required="">
+										<input type="password" class="form-control" name="pwd" id="pwd" placeholder="" required="">
 									</div>
 									<div class="form-check mb-2">
 										<input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -383,9 +389,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="inner-sec-shop px-lg-4 px-3">
 				<h3 class="tittle-w3layouts my-lg-4 mt-3">Checkout </h3>
 			 <div class="table table-bordered">
-			 <table>
+			 
+			 		 <table class="timetable_sub">
 			 	<tr>
-			 		<th width ="10%"> </th>
+			 		<th width ="1%">Produit </th>
 			 		<th width ="20%">Nom Produit </th>
 			 		<th width ="10%">Prix</th>
 			 		<th width ="10%">Quantité </th>
@@ -399,8 +406,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 	foreach ($_SESSION["shopping_cart"] as $keys => $values)
 			 	{
 			 		?>		
-			 		<tr>					
-							<td> <img src="images/<?php echo $values['image'];?>" class="img-responsive" alt=""/></td>
+			 		<tr  >					
+							<td class="invert-image"> <img src="images/<?php echo $values['image'];?>" width="200" height="200" alt=""></td>
 							<td align="middle"><a href="#"><?php echo $values['nom'];?></a></td>
 							<td align="middle" ><?php echo $values['prix'];?></td>
 							<td align="middle"><?php echo   $values['quantity'];?></td>
@@ -421,21 +428,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 
 
-				<form  class="submit check_out" method="post" action="ordre.php">
+				
 			 						<div class="clearfix"> </div>
 
 			 						<div class="checkout-right-basket">
                
-			 <a ><input  type="submit" name="Commander" value="Order"  onclick="myFunction()"> </a>
+			 
+
 			</div>
-			 </form>
+			 
 
 
 <script>
 function myFunction() {
-  alert("Order Added Successfully");
+ 
+  alert("Veuillez vous connecter pour passer une commande...");
+
 }
 </script>
+
 
 				<div class="checkout-left row">
 					
@@ -444,11 +455,20 @@ function myFunction() {
 						
 						<div class="checkout-right-basket">
 							<a href="index.php">Continue Shopping </a>
+												<div class="clearfix"> </div>
+
+
+						</div>
+						<div class="checkout-right-basket">
+							
+					<div class="clearfix"> </div>
+
+							<a href="" onclick="myFunction()" > Passer La commande 	</a>
+												<div class="clearfix"> </div>
+
 						</div>
 					</div>
-					<div class="checkout-right-basket">
-							<a href="pdf.php">Export Pdf Bill </a>
-						</div>
+					
 
 					<div class="clearfix"> </div>
 

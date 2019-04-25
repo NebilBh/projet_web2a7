@@ -42,7 +42,7 @@ class Commande
     {
         $pdo=Config::getConnexion();
         $totale=0;
-        $user=13;
+        $user=$_SESSION['r'];
         $sql='SELECT ID FROM `commande` WHERE (user=:user AND totale=:totale)';
         $stmt=$pdo->prepare($sql);
         $stmt->bindParam(':user',$user);
@@ -66,36 +66,7 @@ class Commande
         }
 
     }
-    function mailing($d)
-    {
-        require '../PHPMailer/PHPMailerAutoload.php';
-        $mail = new PHPMailer();
-        $mail->IsSmtp();
-        $mail->SMTPAuth = true;
-        $mail->Debugoutput='html';
-        $mail->Host = "smtp.gmail.com";
-        $mail->Port = 25;
-        $mail->isHTML(true);
-        $mail->Username = "123.traduire@gmail.com";
-        $mail->Password = "123456nadim";
-        $mail->setFrom("123.traduire@gmail.com");
-        $mail->Subject = "PHPMailer SMTP options test";
-        $mail->Body="Votre commande a été valider .";
-        $mail->AddAttachment("fichier".$_FILES[fichier]['name']);
-        $mail->AltBody ="Bonjour";
-        $mail->AddAddress($d);
-        $mail->SMTPOptions = array(
-            'ssl' => array(
-                'verify_peer' => false,
-                'verify_peer_name' => false,
-                'allow_self_signed' => true
-            )
-        );
-        if (!$mail->send()) {
-        } else {
-            echo "<script>window.location.href='https://mail.google.com/mail/';</script>";
-        }
-    }
+    
 
 
 }

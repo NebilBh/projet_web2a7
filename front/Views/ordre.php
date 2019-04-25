@@ -1,11 +1,13 @@
 <?php
 ob_start();
 session_start();
-include 'C:/wamp64/www/FRONT GHASSEN/Entities/LigneCommande.php';
-include 'C:/wamp64/www/FRONT GHASSEN/Entities/Commande.php';
+include 'C:/wamp64/www/front/Entities/LigneCommande.php';
+include 'C:/wamp64/www/front/Entities/Commande.php';
 include '../config.php';
 $db=config::getConnexion();
-$c=new Commande('',13,0);
+if(!empty($_SESSION["shopping_cart"])) 
+{
+$c=new Commande('',$_SESSION['r'],0);
 //var_dump($c);
 $c->AjouterCommande();
 //var_dump($_SESSION["shopping_cart"]);
@@ -21,8 +23,14 @@ for($i=0;$i<count($ids);$i++)
 	$lc->AjouterLigneCommande();
 	$total+=$_SESSION['shopping_cart'][$ids[$i]]['prix']*$_SESSION['shopping_cart'][$ids[$i]]['quantity'];
 }
-$c=new Commande((int)$idc,13,(int)$total);
+$c=new Commande((int)$idc,$_SESSION['r'],(int)$total);
 $c->ModifierCommande();
+echo '<script>alert("Commande passer avec succes!")</script>';
+				echo '<script>window.location="checkout_connecte.php"</script>'; }
 //var_dump($c);
-header('Location: checkout.php');
+// remove all session variables
+else { echo '<script>alert("Impossible de passer une commande vide ...")</script>';
+				echo '<script>window.location="checkout_connecte.php"</script>';}
+
 ?>
+

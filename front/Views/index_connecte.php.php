@@ -57,13 +57,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</h1>
 				</div>
 				<div class="col-md-3 top-info-cart text-right mt-lg-4">
-<form class="button-log">
-							<a class="btn-open" href="#">
-								<span class="fa fa-user" title="Log In" aria-hidden="true"></span>
-							</a>
-						</form>
+
 				
-            <a href="checkout.php" title="CHECKOUT" rel="nofollow">
+            <a href="checkout_connecte.php" title="CHECKOUT" rel="nofollow">
                 <button class="top_googles_cart" type="submit" name="submit" value="">
 									                 <i class="fas fa-cart-arrow-down"></i>
 
@@ -96,10 +92,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     
                                     
                                 }
+
+                               
                                 
                                  ?>
+
                 </span>
+
               </a>
+               <?php  echo 'Bienvenue <b>'.$_SESSION['r'].'</b> '; 
+	echo '<form  action="logout.php">
+  <button type="submit" name="button" id="button" class="btn btn-primary submit mb-4">Log Out</button>
+</form>';?>	
        </div>
 					<!---->
 					<div class="overlay-login text-left">
@@ -108,25 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</button>
 						<div class="wrap">
 							<h5 class="text-center mb-4">Login Now</h5>
-							<div class="login p-5 bg-dark mx-auto mw-100">
-								<form action="connexion.php" method="post">
-									<div class="form-group">
-										<label class="mb-2">Email address</label>
-										<input type="email" class="form-control" name="login" id="login" aria-describedby="emailHelp" placeholder="" required="">
-										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-									</div>
-									<div class="form-group">
-										<label class="mb-2">Password</label>
-										<input type="password" class="form-control" name="pwd" id="pwd" placeholder="" required="">
-									</div>
-									<div class="form-check mb-2">
-										<input type="checkbox" class="form-check-input" id="exampleCheck1">
-										<label class="form-check-label" for="exampleCheck1">Check me out</label>
-									</div>
-									<button type="submit" name="button" id="button" class="btn btn-primary submit mb-4">Sign In</button>
-
-								</form>
-							</div>
+							
 							<!---->
 						</div>
 					</div>
@@ -640,7 +626,7 @@ while ($product = $req->fetch(PDO::FETCH_ASSOC)) : ?>
 															</ul>
 														</div>
 														<div >
-														 <a class="button item_add cbp-vm-icon cbp-vm-add" href="addcart.php?id=<?php echo $product['id'] ?>">AJOUTER AU PANIER</a>
+														 <a class="button item_add cbp-vm-icon cbp-vm-add" href="addcart_connecte.php?id=<?php echo $product['id'] ?>">AJOUTER AU PANIER</a>
 														<i class="fas fa-cart-plus"></i>
 																
 														
@@ -1379,5 +1365,5 @@ while ($product = $req->fetch(PDO::FETCH_ASSOC)) : ?>
 		<script src="js/bootstrap.js"></script>
 		<!-- js file -->
 </body>
-
+	
 </html>

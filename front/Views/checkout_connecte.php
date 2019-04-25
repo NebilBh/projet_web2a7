@@ -1,15 +1,20 @@
+<?php
+session_start();
+?>
+
+
 <!--
 	Author: W3layouts
 	Author URL: http://w3layouts.com
 	License: Creative Commons Attribution 3.0 Unported
 	License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<?php session_start ();   ?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
 <head>
-	<title>Afric Optic</title>
+	<title>Goggles Ecommerce Category Bootstrap responsive Web Template | Checkout :: w3layouts</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="keywords" content="Goggles a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -27,57 +32,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<link href="css/login_overlay.css" rel='stylesheet' type='text/css' />
 	<link href="css/style6.css" rel='stylesheet' type='text/css' />
 	<link rel="stylesheet" href="css/shop.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="css/checkout.css">
+	<link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
 	<link href="css/style.css" rel='stylesheet' type='text/css' />
 	<link href="css/fontawesome-all.css" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
 	    rel="stylesheet">
-	    <script type='text/javascript' src='https://appstatic.jeeliz.com/jeewidget/JeelizNNCwidget.js'></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type='text/javascript'>
-    	// function which are used only for this functionnal test
-     
-
-      // main function, launched with body.onload()
-      function main() {
-        JEEWIDGET.start({
-          sku: 'rayban_aviator_or_vertFlash',
-          searchImageMask: 'https://appstatic.jeeliz.com/jeewidget/images/target.png',
-          searchImageColor: 0xff0000,
-          onError: function(errorLabel){ // this function catches errors, so you can display custom integrated messages
-            alert('An error happened. errorLabel =' + errorLabel)
-            switch(errorLabel) {
-              case 'NOFILE':
-                // the user send an image, but it is not here
-                break
-
-              case 'WRONGFILEFORMAT':
-                // the user upload a file which is not an image or corrupted
-                break
-
-              case 'INVALIDSKU':
-                // the provided SKU does not match with a glasses model
-                break
-
-              case 'FALLBACKUNAVAILABLE':
-                // we cannot switch to file upload mode. browser too old ?
-                break
-
-              case 'FATAL':
-              default:
-                // a bit error happens :(
-                break
-            } // end switch
-          } // end onError()
-        }) // end JEEWIDGET.start call
-      } // end main()
-    </script>
-<link rel='stylesheet' href='css/JeeWidgetPublicGitBasic.css' />
 </head>
 
-<body onload="main()" >
+<body>
 	<div class="banner-top container-fluid" id="home">
 		<!-- header -->
 		<header>
@@ -98,7 +62,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 
 				<div class="col-md-3 top-info-cart text-right mt-lg-4">
-					 <a href="checkout.php" title="CHECKOUT" rel="nofollow">
+				
+
+<a href="checkout.php" title="CHECKOUT" rel="nofollow">
                 <button class="top_googles_cart" type="submit" name="submit" value="">
 									                 <i class="fas fa-cart-arrow-down"></i>
 
@@ -129,17 +95,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 } else {
                                     echo 'Empty Please Shop!';
                                     
-                                    
                                 }
                                 
                                  ?>
                 </span>
               </a>
-               <?php  echo 'Bienvenue <b>'.$_SESSION['r'].'</b> '; 
+              <?php  echo 'Bienvenue <b>'.$_SESSION['r'].'</b> '; 
 	echo '<form  action="logout.php">
   <button type="submit" name="button" id="button" class="btn btn-primary submit mb-4">Log Out</button>
 </form>';?>	
        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 					<!---->
 					<div class="overlay-login text-left">
 						<button type="button" class="overlay-close1">
@@ -264,7 +259,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</li>
 							</ul>
 						</li>
-						<li class="nav-item dropdown">
+						<li class="nav-item dropdown active">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true"
 							    aria-expanded="false">
 								Shop
@@ -372,7 +367,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="services-breadcrumb">
 				<div class="inner_breadcrumb">
 
-					
+					<ul class="short">
+						<li>
+							<a href="index.html">Home</a>
+							<i>|</i>
+						</li>
+						<li>Checkout </li>
+					</ul>
 				</div>
 			</div>
 
@@ -380,79 +381,91 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!--//banner -->
 	</div>
 	<!--// header_top -->
-	<!--/404-->
-		<section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+	<!--checkout-->
+
+	<section class="banner-bottom-wthreelayouts py-lg-5 py-3">
 		<div class="container">
+			<div class="inner-sec-shop px-lg-4 px-3">
+				<h3 class="tittle-w3layouts my-lg-4 mt-3">Checkout </h3>
+			 
+			 <table class="timetable_sub">
+			 	<tr>
+			 		<th width ="1%">Produit </th>
+			 		<th width ="20%">Nom Produit </th>
+			 		<th width ="10%">Prix</th>
+			 		<th width ="10%">Quantité </th>
+			 		<th width ="10%">Total </th>
+			 		<th width ="10%">Action</th>
+			 	</tr>
+			 <?php if (!empty($_SESSION["shopping_cart"]))
+			 {
+				 $total = 0;
+			 	//$total=0;
+			 	foreach ($_SESSION["shopping_cart"] as $keys => $values)
+			 	{
+			 		?>		
+			 		<tr  >					
+							<td class="invert-image"> <img src="images/<?php echo $values['image'];?>" width="200" height="200" alt=""></td>
+							<td align="middle"><a href="#"><?php echo $values['nom'];?></a></td>
+							<td align="middle" ><?php echo $values['prix'];?></td>
+							<td align="middle"><?php echo   $values['quantity'];?></td>
+							<td align="middle"><?php echo   number_format($values["quantity"]*$values["prix"],2);?></td>
+							<td><a href="addcart_connecte.php?action=delete&pid=<?php echo $values["id"]; ?>"><span onclick="return confirm('Are you sure to delete?');">Remove</span></a></td>
+						</tr>
+						<?php
+							$total = $total + ($values["quantity"] * $values["prix"]);
+						}
+					?>
+					<?php
+				}
+				else
+					$total = 0;
+				?>
+			</table>
+		
+				</div>
 
 
-	<main>
-      <!-- BEGIN JEEWIDGET -->
-      			<h3 class="tittle-w3layouts text-center my-lg-4 my-4">Try Glasses On !</h3>
-<div class="inner_sec">
-				<p class="sub text-center mb-lg-5 mb-3">We love to make our customers happy</p>
+		
 
-				<div  id='JeeWidgetChangeModelContainer' >
-       
-			<h3 align="left"> Choose a Model</h3>
+
+<script>
+function myFunction() {
+  
+
+
+  alert("Commande En cours de transaction.....");
+}
+</script>
+
+				
 					
-          <button  class="btn btn-primary submit mb-4"  onclick="JEEWIDGET.load('rayban_aviator_or_vertFlash')">RayBan Aviator</button>
-          <button  class="btn btn-primary submit mb-4"  onclick="JEEWIDGET.load('rayban_round_cuivre_pinkBrownDegrade')">Vakay</button>
-          <button  class="btn btn-primary submit mb-4"  onclick="JEEWIDGET.load('rayban_wayfarer_denimNoir_bleuMirroir')">Persol</button>        
-        </div>
+					<div class="col-md-8 address_form">
+											<div class="clearfix"> </div>
 
-      <div id='JeeWidget' >
-        <!-- MAIN CANVAS : --><canvas id='JeeWidgetCanvas'></canvas>
+						
+						<div class="checkout-right-basket">
+							<a href="index_connecte.php">Continue Shopping </a>
+						</div>
+					
+					<div class="checkout-right-basket">
+							<a href="pdf.php">Export Pdf Bill </a>
+						</div>
 
-        <!-- BEGIN UPLOAD PICTURE BUTTON -->
-          <div class='JeeWidgetHiddenFileInput'>
-             <input type='file' id='JeeWidgetFileInput' />
-          </div>
+					<div class="checkout-right-basket">
+							<a href="ordre.php" >Order </a>
+						</div> 
+					</div>	
 
-          <button id='JeeWidgetFileInputButton'><div class="buttonIcon"><i class="far fa-image"></i></div>Try on a picture</button>
-        <!-- END UPLOAD PICTURE BUTTON -->
-        <!-- BACK TO REALTIME VIDEO BUTTON : --><button id='JeeWidgetBackToRealtimeButton'>Back to video</button>
-        <!-- ADJUST BUTTON : -->
-        
-        
-        
-        <!-- BEGIN ADJUST NOTICE -->
-        <div id='JeeWidgetAdjustNotice'>
-          You can move the glasses yeah !
-          <button class='JeeWidgetBottomButton' id='JeeWidgetAdjustExit'>Quit</button>
-        </div>
-        <!-- END AJUST NOTICE -->
+					<div class="clearfix"> </div>
 
-        <!-- BEGIN LOADING -->
-        <div id='JeeWidgetLoading'>
-           <div class='JeeWidgetLoadingWheel'>
-              <svg viewBox='0 0 32 32' width='32' height='32'>
-                <circle id='spinner' cx='16' cy='16' r='14' fill='none' />
-              </svg>
-            </div>
-        </div>
-        <!-- END LOADING -->
-        <!-- BEGIN FALLBACK (upload picture) NOTICE -->
-        <!--div id='JeeWidgetUploadNotice'>
-          Please upload a picture to tryon your glasses
-          <div class='JeeWidgetHiddenFileInput'>
-             <input type='file' id='JeeWidgetFileInputNotice' />
-          </div>
-          <button id='JeeWidgetFileInputButtonNotice'>Choose image from file</button>
-        </div-->
-        <!-- END FALLBACK (upload picture) NOTICE -->
+					
 
+			</div>
 
-
-      </div>
-      <!-- END JEEWIDGET -->    
-    </main>
-</div>
-    </section>
-
-
-
-
-	<!--//404-->
+		</div>
+	</section>
+	<!--//checkout-->
 	<!--footer -->
 	<footer class="py-lg-5 py-3">
 		<div class="container-fluid px-lg-5 px-3">
@@ -462,7 +475,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<h3>About Us</h3>
 					</div>
 					<div class="footer-text">
-						<p>Curabitur non nulla sit amet nislempusinit t convallis quis ac lectus. lac inia eget consectetur sed, convallis at
+						<p>Curabitur non nulla sit amet nislinit tempus convallis quis ac lectus. lac inia eget consectetur sed, convallis at
 							tellus. Nulla porttitor accumsana tincidunt.</p>
 						<ul class="footer-social text-left mt-lg-4 mt-3">
 
@@ -561,11 +574,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</footer>
 	<!-- //footer -->
-
 	<!--jQuery-->
 	<script src="js/jquery-2.2.3.min.js"></script>
 	<!-- newsletter modal -->
-
 	<!--search jQuery-->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<script src="js/classie-search.js"></script>
@@ -601,6 +612,75 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	</script>
 	<!-- carousel -->
+	<!-- easy-responsive-tabs -->
+	<script src="js/easy-responsive-tabs.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('#horizontalTab').easyResponsiveTabs({
+				type: 'default', //Types: default, vertical, accordion           
+				width: 'auto', //auto or any width like 600px
+				fit: true, // 100% fit in a container
+				closed: 'accordion', // Start closed if in accordion view
+				activate: function (event) { // Callback function if tab is switched
+					var $tab = $(this);
+					var $info = $('#tabInfo');
+					var $name = $('span', $info);
+					$name.text($tab.text());
+					$info.show();
+				}
+			});
+			$('#verticalTab').easyResponsiveTabs({
+				type: 'vertical',
+				width: 'auto',
+				fit: true
+			});
+		});
+	</script>
+	<!--quantity-->
+	<script>
+		$('.value-plus').on('click', function () {
+			var divUpd = $(this).parent().find('.value'),
+				newVal = parseInt(divUpd.text(), 10) + 1;
+			divUpd.text(newVal);
+		});
+
+		$('.value-minus').on('click', function () {
+			var divUpd = $(this).parent().find('.value'),
+				newVal = parseInt(divUpd.text(), 10) - 1;
+			if (newVal >= 1) divUpd.text(newVal);
+		});
+	</script>
+	<!--quantity-->
+	<!--close-->
+	<script>
+		$(document).ready(function (c) {
+			$('.close1').on('click', function (c) {
+				$('.rem1').fadeOut('slow', function (c) {
+					$('.rem1').remove();
+				});
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function (c) {
+			$('.close2').on('click', function (c) {
+				$('.rem2').fadeOut('slow', function (c) {
+					$('.rem2').remove();
+				});
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function (c) {
+			$('.close3').on('click', function (c) {
+				$('.rem3').fadeOut('slow', function (c) {
+					$('.rem3').remove();
+				});
+			});
+		});
+	</script>
+	<!--//close-->
+
 	<!-- dropdown nav -->
 	<script>
 		$(document).ready(function () {

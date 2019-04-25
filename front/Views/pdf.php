@@ -12,16 +12,16 @@ $total=0;
         include 'page_footer.php';
     ?>
 
-    <h1>Facture</h1>
+    <h1 align="center" 	>Facture</h1>
     <table class="doc-infos">
         <tr>
             <td class="invoice">
-                <p>Date : 21/06/2016</p>
+                <p><?php echo "Date :" . date("d/m/Y") . "<br>"?></p>
             </td>
             <td class="client">
-                <h3>CLIENT TEST</h3>
-                <p>Adresse Nimporte</p>
-                <p>Tel 4545457575</p>
+                <h3>Nom : <?php echo '<b>'.$_SESSION['r'].'</b> '?></h3>
+                <p>Email : <?php echo '<b>'.$_SESSION['l'].'</b> '?></p>
+                <p>Tel : 2365741</p>
             </td>
         </tr>
     </table>
@@ -45,11 +45,12 @@ $total=0;
                 ?>
             <tr>
                 <td><?= $_SESSION['shopping_cart'][$ids[$i]]['nom'] ?></td>
-                <td>Description</td>
+                <td>Lunette</td>
                 <td><?= $_SESSION['shopping_cart'][$ids[$i]]['quantity']?></td>
                 <td><?= number_format($_SESSION['shopping_cart'][$ids[$i]]['prix'], 2)?></td>
                 <td><?= number_format($prixTel, 2)?></td>
             </tr>
+
             <?php }?>
 
     </table>
@@ -63,15 +64,12 @@ $total=0;
             <td style="width: 25%"><?=number_format($total, 2)?></td>
         </tr>
         <tr>
-            <td>Total TVA</td>
-            <td></td>
+            <td style="width: 70%">Total TVA </td>
+            <td style="width: 25%"><?=number_format(10.000, 2)?></td>
         </tr>
+        
         <tr>
-            <td>Total TTC</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td style="text-align: center" colspan="2">Net A payer : <?=number_format($total, 2)?></td>
+            <td style="text-align: center" colspan="2">Net A payer : <?=number_format($total+10.000, 2)?></td>
         </tr>
     </table>
 
@@ -80,6 +78,7 @@ $total=0;
         <tr>
             <td class="sinature"></td>
             <td class="amount-chars">
+
                 <p>signature client</p>
             </td>
         </tr>
