@@ -1,11 +1,12 @@
 <?php
-include "../config.php";
+//include "../config.php";
 include "../Entities/Categorie.php";
 
 class CategorieC
 {
 	function ajouter($Categorie)
 	{
+		include "../config.php";
 		$db = config::getConnexion();//config.php
 		$sql="insert into categories (titre,description) values (:titre,:description)";
 		
@@ -44,6 +45,7 @@ class CategorieC
 	
 	function supprimer($colonne,$valeur)
 	{
+		include "../config.php";
 		$db = config::getConnexion();//config.php
 		$sql="delete from categories where(".$colonne."=".$valeur.")";
 		
@@ -62,6 +64,7 @@ class CategorieC
 
 	function chercher($colonne,$valeur)
 	{
+		include "../config.php";
 		$db = config::getConnexion();//config.php
 		$sql="select * from categories where(".$colonne."=".$valeur.")";
 		
@@ -77,6 +80,7 @@ class CategorieC
 	
 	function modifier($Categorie)
 	{
+		include "../config.php";
 		$db = config::getConnexion();//config.php
 		$sql="update categories set titre = :titre ,description = :description where id_categorie = :id_categorie";
 		

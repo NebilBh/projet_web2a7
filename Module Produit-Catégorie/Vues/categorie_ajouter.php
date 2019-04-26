@@ -2,7 +2,22 @@
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
-            
+            <div class="page-title">
+              <div class="title_left">
+                <h3> Media Gallery <small> gallery design</small> </h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div class="clearfix"></div>
 
@@ -11,7 +26,7 @@
               <div class="col-md-6 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Modifier une catégorie</h2>
+                    <h2>Ajouter une nouvelle categorie</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -31,15 +46,12 @@
                   </div>
                   <div class="x_content">
                     <br />
-					
-
-                     <form class="form-horizontal form-label-left" method="GET" action="modifier_Categorie.php">
-					 <input type="hidden" name="id_Categorie" value="<?php echo (isset($id_categorie))?$id_categorie:'';?>" >
+                    <form class="form-horizontal form-label-left" method="GET" action="ajouter_Categorie.php">
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-3">titre Catégorie</label>
                         <div class="col-md-9 col-sm-9 col-xs-9">
-                          <input type="text" placeholder="Titre de la Catégorie" name="titre_categorie" value="<?php echo (isset($titre))?$titre:'';?>" class="form-control" data-inputmask="'mask': '99/99/9999'" required>
+                          <input type="text" placeholder="Titre de la Catégorie" name="titre_categorie" class="form-control" data-inputmask="'mask': '99/99/9999'" required>
                           <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                         </div>
                       </div>
@@ -47,10 +59,12 @@
 					  <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-3">Description Catégorie</label>
                         <div class="col-md-9 col-sm-9 col-xs-9">
-                          <input type="text" placeholder="Description de la Catégorie" name="description_categorie" value="<?php echo (isset($description))?$description:'';?>" class="form-control" data-inputmask="'mask': '99/99/9999'" required>
+                          <input type="text" placeholder="Description de la Catégorie" name="description_categorie" class="form-control" data-inputmask="'mask': '99/99/9999'" required>
                           <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                         </div>
                       </div>
+					  
+					  
 					
 					  
 					  
@@ -61,17 +75,12 @@
 
                       <div class="form-group">
                         <div class="col-md-9 col-md-offset-3">
-                          <button type="submit" class="btn btn-primary">Cancel</button>
-                          <button type="submit" class="btn btn-success" onclick="modif();">Modifier</button>
+                          <button type="button" class="btn btn-primary">Cancel</button>
+                          <button type="submit" class="btn btn-success" name="submit">Submit</button>
                         </div>
                       </div>
 
                     </form>
-					
-
-					
-					
-                    
                   </div>
                 </div>
               </div>
@@ -105,9 +114,19 @@
     <!-- NProgress -->
     <script src="js/nprogress.js"></script>
 
+	
+
     <!-- Custom Theme Scripts -->
     <script src="js/custom.min.js"></script>
 	<!-- stars animation -->
     <script src="js/stars.js"></script>
+	
+	<!-- bootstrap-daterangepicker -->
+    <script src="js/moment.min.js"></script>
+    <script src="js/daterangepicker.js"></script>
+	<script src="js/moment-with-locales.min.js"></script>
+	<script src="js/bootstrap-datetimepicker.min.js"></script>
+
+
   </body>
 </html>

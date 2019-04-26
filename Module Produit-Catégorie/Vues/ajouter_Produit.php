@@ -37,7 +37,11 @@ include('../Core/ProduitC.php');
 			if($mes==true)
 			{
 				header('Location: produit_ajouter.html');
-				if($image!="")copier_image();
+				if($image!="")
+					{
+						copier_image("./images/");
+						copier_image("../front/images/");
+					}
 				echo "ajout avec succes";
 			}
 			else 
@@ -50,9 +54,9 @@ include('../Core/ProduitC.php');
 	}
 	else echo "erreur <br>";
 	
-	function copier_image()
+	function copier_image($target_dir)
 	{
-		$target_dir = "./images/";
+		//$target_dir = "./images/";
 		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 		$uploadOk = 1;
 		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));

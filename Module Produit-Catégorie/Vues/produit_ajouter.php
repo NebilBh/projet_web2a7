@@ -1,9 +1,23 @@
 <?php include "header.php"; ?>
-
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
-            
+            <div class="page-title">
+              <div class="title_left">
+                <h3> Media Gallery <small> gallery design</small> </h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div class="clearfix"></div>
 
@@ -32,32 +46,27 @@
                   </div>
                   <div class="x_content">
                     <br />
-					
+                    <form class="form-horizontal form-label-left" method="POST" enctype="multipart/form-data" action="ajouter_Produit.php">
 
-					<form class="form-horizontal form-label-left"  method="GET"  action="modifier_Produit.php">
-                      <input type="hidden" name="id_produit" value="<?php echo (isset($id_produit))?$id_produit:'';?>" >
-					  <input type="hidden" name="date_creation" value="<?php echo (isset($date_creation))?$date_creation:'';?>">
-					  <input type="hidden" name="date_vente" value="<?php echo (isset($date_vente))?$date_vente:'';?>">
-					  <div class="form-group">
+                      <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-3">Caractéristiques</label>
                         <div class="col-md-9 col-sm-9 col-xs-9">
-                          <input type="text" placeholder="Caractéristiques" name="caracteristiques" value="<?php echo (isset($caracteristiques))?$caracteristiques:'';?>" class="form-control" data-inputmask="'mask': '99/99/9999'" required>
+                          <input type="text" placeholder="Caractéristiques" name="caracteristiques" class="form-control" data-inputmask="'mask': '99/99/9999'" required>
                           <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                         </div>
                       </div>
 					  <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-3">Prix</label>
                         <div class="col-md-9 col-sm-9 col-xs-9">
-                          <input type="text" placeholder="Prix unitaire" name="prix" value="<?php echo (isset($prix))?$prix:'';?>" class="form-control" data-inputmask="'mask': '99/99/9999'" required>
+                          <input type="text" placeholder="Prix unitaire" name="prix" class="form-control" data-inputmask="'mask': '99/99/9999'" required>
                           <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                         </div>
                       </div>
 					  
-                      
 					  <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-3">Marque</label>
                         <div class="col-md-9 col-sm-9 col-xs-9">
-                          <input type="text" placeholder="Marque" name="marque" value="<?php echo (isset($marque))?$marque:'';?>" class="form-control" data-inputmask="'mask': '99/99/9999'" required>
+                          <input type="text" placeholder="Marque" name="marque" class="form-control" data-inputmask="'mask': '99/99/9999'" required>
                           <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                         </div>
                       </div>
@@ -66,7 +75,7 @@
                         <div class="col-md-9 col-sm-9 col-xs-9">
 							<p>
 								Homme 
-								<input type="radio" class="flat" name="sexe" id="genderM" value="M" /> 
+								<input type="radio" class="flat" name="sexe" id="genderM" value="M" checked=""  /> 
 								Femme 
 								<input type="radio" class="flat" name="sexe" id="genderF" value="F" />
 								Enfant 
@@ -74,12 +83,6 @@
 							 </p>
                         </div>
                       </div>
-<script>
-var sexe="<?php echo $sexe; ?>";
-if(sexe==="M")document.getElementById("genderM").checked = true;
-else if (sexe==="F")document.getElementById("genderF").checked = true;
-else document.getElementById("genderE").checked = true;
-</script>
 					  <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-3">Formes</label>
                         <div class="col-md-9 col-sm-9 col-xs-9">
@@ -95,30 +98,19 @@ else document.getElementById("genderE").checked = true;
 							 </p>
                         </div>
                       </div>
-<script>
-var forme="<?php echo $forme; ?>";
-if(forme==="A")document.getElementById("FormesA").checked = true;
-else if (forme==="C")document.getElementById("FormesC").checked = true;
-else if (forme==="E")document.getElementById("FormesE").checked = true;
-else document.getElementById("FormesR").checked = true;
-</script>
 					  <div class="ln_solid"></div>
 					  
 					  <div class="input-group">
 							<div class="form-group">
 								<label class="control-label col-md-3 col-sm-3 col-xs-3">image</label>
 								<div class="col-md-9 col-sm-9 col-xs-9">
-									  <input type="text" name="image" value="<?php echo (isset($image))?$image:'';?>" class="form-control" placeholder="url de l'image">
-											<span class="input-group-btn">
-															  <button type="button" class="btn btn-primary">ajouter image</button>
-														  </span>	
+									<input type="file" name="fileToUpload" id="fileToUpload" class="btn btn-primary"/>	
 								</div>
 								
 							</div>
                       </div>
 					  
-					  
-						  
+					    
 					  <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-3" for="date">Date expiration</label>
                         <div class="col-md-9 col-sm-9 col-xs-9">
@@ -127,7 +119,7 @@ else document.getElementById("FormesR").checked = true;
 							  <div class="control-group">
 								<div class="controls">
 								  <div class="col-md-11 xdisplay_inputx form-group has-feedback">
-							<input class="form-control has-feedback-left" id="single_cal2" name="date_expiration" value="<?php echo (isset($date_expiration))?$date_expiration:'';?>" placeholder="MM/DD/YYYY" type="text" aria-describedby="inputSuccess2Status2"/>
+							<input class="form-control has-feedback-left" id="single_cal2" name="date_expiration" placeholder="MM/DD/YYYY" type="text" aria-describedby="inputSuccess2Status2"/>
 									<span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
 									<span id="inputSuccess2Status2" class="sr-only">(success)</span>
 								  </div>
@@ -137,27 +129,26 @@ else document.getElementById("FormesR").checked = true;
 						</div>
                       </div>
 					  
+
+
 					  <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-3">categorie</label>
                         <div class="col-md-9 col-sm-9 col-xs-9">
                           <select name="id_categorie" class="form-control" required>
+                            <option value="">Choose..</option>
                             <?php 
-                            include "../Core/CategorieC.php";
-                            $Categoriec = new CategorieC();
-                            
-                            ?>   
-                            
-                            <?php 
-                            $tab2 = $Categoriec->afficher();
-                            foreach($tab2 as $row2)
+                            include "../config.php";
+                            include "afficher_Categorie.php";
+                             ?> 
+                            <?php foreach($tab as $row)
                             { 
                             ?>
-                            <option value="<?php echo $row2['id_categorie']; ?>"><?php echo $row2['titre']; ?></option> 
+                            <option value="<?php echo $row['id_categorie']; ?>"><?php echo $row['titre']; ?></option> 
                             <?php 
                             } 
                             ?>   
+                            
                           </select>
-                          <!--<input type="text" placeholder="catégorie" name="id_categorie" class="form-control" value="<?php echo (isset($id_categorie))?$id_categorie:'';?>" data-inputmask="'mask': '99/99/9999'" required>-->
                           <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
                         </div>
                       </div>
@@ -171,7 +162,7 @@ else document.getElementById("FormesR").checked = true;
 								<span class="fa fa-star-o" data-rating="3"></span>
 								<span class="fa fa-star-o" data-rating="4"></span>
 								<span class="fa fa-star-o" data-rating="5"></span>
-								<input type="hidden" name="note" class="rating-value" value="<?php echo (isset($note))?$note:'';?>">
+								<input type="hidden" name="note" class="rating-value" value="2.56">
 							  </div>
 							</div>
 					  </div>
@@ -182,26 +173,27 @@ else document.getElementById("FormesR").checked = true;
 					  
 					  
 					  
-
+						
+						
                       <div class="form-group">
                         <div class="col-md-9 col-md-offset-3">
                           <button type="submit" class="btn btn-primary">Cancel</button>
-                          <button type="submit" class="btn btn-success" onclick="modif();">Modifier</button>
+                          <button type="submit" class="btn btn-success" name="submit" onclick="verifier_produit();">Submit</button>
                         </div>
                       </div>
 
                     </form>
-					
-
-					
-					
-                    
                   </div>
                 </div>
               </div>
               <!-- /form input mask -->
 
-
+<script>
+function verifier_produit()
+{
+	alert("nadhir");
+}
+</script>
               
 
             </div>
@@ -229,9 +221,67 @@ else document.getElementById("FormesR").checked = true;
     <!-- NProgress -->
     <script src="js/nprogress.js"></script>
 
+	<!-- verifier condition -->
+	<script src="js/Condition_produit.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="js/custom.min.js"></script>
 	<!-- stars animation -->
     <script src="js/stars.js"></script>
+	
+	<!-- bootstrap-daterangepicker -->
+    <script src="js/moment.min.js"></script>
+    <script src="js/daterangepicker.js"></script>
+	<script src="js/moment-with-locales.min.js"></script>
+	<script src="js/bootstrap-datetimepicker.min.js"></script>
+	<script>
+    $(function () {
+   var bindDatePicker = function() {
+		$(".date").datetimepicker({
+        format:'YYYY-MM-DD',
+			icons: {
+				time: "fa fa-clock-o",
+				date: "fa fa-calendar",
+				up: "fa fa-arrow-up",
+				down: "fa fa-arrow-down"
+			}
+		}).find('input:first').on("blur",function () {
+			// check if the date is correct. We can accept dd-mm-yyyy and yyyy-mm-dd.
+			// update the format if it's yyyy-mm-dd
+			var date = parseDate($(this).val());
+
+			if (! isValidDate(date)) {
+				//create date based on momentjs (we have that)
+				date = moment().format('YYYY-MM-DD');
+			}
+
+			$(this).val(date);
+		});
+	}
+   
+   var isValidDate = function(value, format) {
+		format = format || false;
+		// lets parse the date to the best of our knowledge
+		if (format) {
+			value = parseDate(value);
+		}
+
+		var timestamp = Date.parse(value);
+
+		return isNaN(timestamp) == false;
+   }
+   
+   var parseDate = function(value) {
+		var m = value.match(/^(\d{1,2})(\/|-)?(\d{1,2})(\/|-)?(\d{4})$/);
+		if (m)
+			value = m[5] + '-' + ("00" + m[3]).slice(-2) + '-' + ("00" + m[1]).slice(-2);
+
+		return value;
+   }
+   
+   bindDatePicker();
+ });
+	</script>
+
+
   </body>
 </html>
