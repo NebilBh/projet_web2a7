@@ -42,4 +42,4 @@ function extraire_date(&$dateD,&$dateF,$duree)
 	$dateF=date("Y-m-d", strtotime($dateF));
 	$dateD=date("Y-m-d", strtotime($dateD));
 }
-?>
+

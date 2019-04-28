@@ -11,8 +11,8 @@ echo "2";
 	if($mes == true )
 	{
 
-		echo "1";
-	header('Location: afficher_soldes.solde');
+		
+	header('Location: afficher_soldes.php');
 	}
 }
 

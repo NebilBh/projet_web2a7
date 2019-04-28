@@ -1,7 +1,7 @@
 <?php
 include "../../Core/offresC.php";
 
-echo '1';
+
 if(isset ($_GET['id']))
 {
 	
